@@ -238,5 +238,5 @@ function simulateBFS(canvasId) {
 // Ejecutar diagramas cuando el documento esté listo
 document.addEventListener('DOMContentLoaded', function() {
     // Los diagramas se inicializarán en cada página cuando sea necesario
-    console.log('Blog Grafos cargado correctamente');
+    console.log('Blog Grafos Desarrollado por Alvaro Javier Torres Ruiz cargado correctamente');
 });
