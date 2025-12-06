@@ -2,6 +2,10 @@
 
 Proyecto educativo que crea un blog técnico completo dedicado a la estructura de datos de **Grafos**. Combina desarrollo web (HTML/CSS/JavaScript) con contenido técnico de alta calidad.
 
+🌐 **[Acceder al Blog →](blog/index.html)**
+
+**Autor:** Alvaro Javier Torres Ruiz
+
 ## 📋 Descripción
 
 Este blog fue creado como parte del curso de **Estructura de Datos 2**. Ofrece una guía completa sobre grafos, incluyendo:
