@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post #1: Introducción a los Grafos | Blog Técnico</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>📊 Blog Grafos</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#posts">Artículos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="../index.html" class="back-btn">← Volver al inicio</a>
+
+        <article class="post-content">
+            <h1>Post #1: Introducción a los Grafos - Nodos, Aristas y Tipos</h1>
+            <div class="post-meta">
+                Publicado el 5 de diciembre de 2025 | Lectura: 8 minutos
+            </div>
+
+            <section>
+                <h2>¿Qué es un Grafo?</h2>
+                <p>
+                    Un <strong>grafo</strong> es una estructura de datos abstracta que modela relaciones entre objetos. 
+                    En términos formales, un grafo G se define como un par de conjuntos: G = (V, E), donde:
+                </p>
+                <ul>
+                    <li><strong>V (Vértices)</strong>: Es el conjunto de nodos u objetos del grafo.</li>
+                    <li><strong>E (Aristas)</strong>: Es el conjunto de arcos o conexiones entre los vértices.</li>
+                </ul>
+                <p>
+                    Los grafos son fundamentales en la informática porque permiten modelar problemas complejos 
+                    del mundo real, como redes de computadoras, sistemas de transporte, relaciones sociales y muchos más.
+                </p>
+            </section>
+
+            <section>
+                <h2>Conceptos Clave</h2>
+
+                <h3>1. Nodos o Vértices (V)</h3>
+                <p>
+                    Los nodos son las unidades fundamentales del grafo. Cada nodo puede representar:
+                </p>
+                <ul>
+                    <li>Una ciudad en una red de rutas</li>
+                    <li>Una persona en una red social</li>
+                    <li>Un router en una red de computadoras</li>
+                    <li>Un página web en internet</li>
+                </ul>
+
+                <h3>2. Aristas o Ejes (E)</h3>
+                <p>
+                    Las aristas son las conexiones entre nodos. Representan las relaciones entre los objetos. 
+                    Por ejemplo:
+                </p>
+                <ul>
+                    <li>Una carretera entre dos ciudades</li>
+                    <li>Una amistad entre dos personas</li>
+                    <li>Una conexión de red entre dos routers</li>
+                    <li>Un hipervínculo entre páginas web</li>
+                </ul>
+
+                <h3>3. Incidencia y Adyacencia</h3>
+                <p>
+                    <strong>Incidencia:</strong> Una arista es incidente a un vértice si ambos son sus extremos.
+                    Por ejemplo, la arista (A, B) es incidente a los vértices A y B.
+                </p>
+                <p>
+                    <strong>Adyacencia:</strong> Dos vértices son adyacentes si existe una arista directa entre ellos.
+                    Por ejemplo, si existe la arista (A, B), entonces A y B son vértices adyacentes.
+                </p>
+
+                <h3>4. Grado de un Nodo</h3>
+                <p>
+                    El <strong>grado</strong> de un nodo es el número de aristas conectadas a él.
+                    En grafos dirigidos distinguimos entre:
+                </p>
+                <ul>
+                    <li><strong>Grado de entrada (in-degree):</strong> Número de aristas que entran al nodo</li>
+                    <li><strong>Grado de salida (out-degree):</strong> Número de aristas que salen del nodo</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Tipos de Grafos</h2>
+
+                <h3>1. Grafos No Dirigidos (Undirected Graphs)</h3>
+                <p>
+                    En los grafos no dirigidos, las aristas no tienen dirección. La relación es simétrica: 
+                    si existe una conexión de A a B, entonces existe la misma conexión de B a A.
+                </p>
+                <p>
+                    <strong>Ejemplo:</strong> Una amistad en una red social es bidireccional. 
+                    Si A es amigo de B, entonces B es amigo de A.
+                </p>
+
+                <h3>2. Grafos Dirigidos (Directed Graphs o Digrafos)</h3>
+                <p>
+                    En los grafos dirigidos, las aristas tienen dirección, representadas generalmente con flechas. 
+                    La relación va de un nodo origen a un nodo destino.
+                </p>
+                <p>
+                    <strong>Ejemplo:</strong> Una relación de "seguidor" en Twitter. 
+                    Si A sigue a B, no necesariamente B sigue a A.
+                </p>
+
+                <h3>3. Grafos Ponderados (Weighted Graphs)</h3>
+                <p>
+                    En los grafos ponderados, cada arista tiene asociado un valor numérico llamado <strong>peso</strong> o <strong>costo</strong>.
+                    Este peso puede representar:
+                </p>
+                <ul>
+                    <li>La distancia entre dos ciudades</li>
+                    <li>El costo de transporte entre nodos</li>
+                    <li>El tiempo de latencia en una red</li>
+                    <li>La probabilidad de una transición</li>
+                </ul>
+
+                <h3>4. Otros Tipos de Grafos</h3>
+                <p>
+                    <strong>Grafo Simple:</strong> Sin aristas múltiples ni bucles (self-loops) entre los mismos vértices.
+                </p>
+                <p>
+                    <strong>Grafo Completo:</strong> Cada par de vértices está conectado por una arista.
+                </p>
+                <p>
+                    <strong>Grafo Bipartito:</strong> Los vértices pueden dividirse en dos conjuntos disjuntos 
+                    tal que cada arista conecta un vértice de un conjunto con otro del otro conjunto.
+                </p>
+                <p>
+                    <strong>Grafo Cíclico:</strong> Contiene al menos un ciclo (un camino que comienza y termina en el mismo vértice).
+                </p>
+                <p>
+                    <strong>Grafo Acíclico:</strong> No contiene ciclos. Un grafo acíclico dirigido se denomina DAG (Directed Acyclic Graph).
+                </p>
+            </section>
+
+            <section>
+                <h2>Ejemplo Visual: Grafo No Dirigido con 5 Nodos</h2>
+                <p>
+                    A continuación se muestra un grafo no dirigido con 5 nodos (A, B, C, D, E) 
+                    y sus respectivas conexiones:
+                </p>
+
+                <div class="diagram-box">
+                    <h4>Grafo No Dirigido - Ejemplo</h4>
+                    <canvas id="graphDiagram" width="500" height="350"></canvas>
+                    <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem;">
+                        <strong>Nodos:</strong> {A, B, C, D, E}<br>
+                        <strong>Aristas:</strong> {(A,B), (B,C), (C,D), (D,E), (E,A), (A,C), (B,E)}
+                    </p>
+                </div>
+
+                <p>
+                    En este ejemplo podemos observar:
+                </p>
+                <ul>
+                    <li><strong>Nodo A:</strong> Tiene grado 4 (conectado a B, C, D, E)</li>
+                    <li><strong>Nodo B:</strong> Tiene grado 3 (conectado a A, C, E)</li>
+                    <li><strong>Nodo C:</strong> Tiene grado 3 (conectado a A, B, D)</li>
+                    <li><strong>Nodo D:</strong> Tiene grado 2 (conectado a C, E)</li>
+                    <li><strong>Nodo E:</strong> Tiene grado 3 (conectado a A, B, D)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Aplicaciones Prácticas</h2>
+                <p>Los grafos tienen aplicaciones en innumerables campos:</p>
+                <ul>
+                    <li><strong>Redes de Computadoras:</strong> Modelan la topología de internet</li>
+                    <li><strong>Sistemas de Navegación:</strong> GPS y mapas usan grafos para encontrar rutas óptimas</li>
+                    <li><strong>Redes Sociales:</strong> Representan conexiones entre usuarios</li>
+                    <li><strong>Recomendaciones:</strong> Sistemas de recomendación basados en relaciones</li>
+                    <li><strong>Biología Computacional:</strong> Representan relaciones entre proteínas y genes</li>
+                    <li><strong>Análisis de Dependencias:</strong> En compiladores y gestores de paquetes</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Conclusión</h2>
+                <p>
+                    Los grafos son una herramienta poderosa y versátil para modelar problemas complejos. 
+                    Comprender sus conceptos básicos es esencial para cualquier programador, especialmente 
+                    cuando se trabaja con algoritmos avanzados y estructuras de datos.
+                </p>
+                <p>
+                    En los próximos artículos exploraremos cómo representar eficientemente grafos en memoria 
+                    y los algoritmos fundamentales para trabajar con ellos.
+                </p>
+            </section>
+        </article>
+
+        <a href="../index.html" class="back-btn">← Volver al inicio</a>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Blog Técnico - Grafos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Dibujar el grafo cuando la página cargue
+        window.addEventListener('load', function() {
+            drawUndirectedGraph('graphDiagram');
+        });
+    </script>
+</body>
+</html>

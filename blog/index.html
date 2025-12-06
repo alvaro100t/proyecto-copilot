@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Técnico - Grafos | Estructura de Datos</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>📊 Blog Grafos</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#posts">Artículos</a></li>
+                <li><a href="#about">Acerca de</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="inicio">
+        <div class="container">
+            <h1>Estructura de Datos: Grafos</h1>
+            <p>Un viaje completo a través de la teoría y aplicación de grafos en programación</p>
+            <a href="#posts" class="btn btn-primary">Comenzar a leer</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="posts" class="posts-section">
+            <h2>Artículos Técnicos</h2>
+            <div class="posts-grid">
+                <article class="post-card" onclick="loadPost('post1')">
+                    <h3>Post #1: Introducción a los Grafos</h3>
+                    <p class="post-excerpt">Aprende los conceptos fundamentales: nodos, aristas y los diferentes tipos de grafos...</p>
+                    <a href="posts/post1.html" class="btn btn-secondary">Leer más</a>
+                </article>
+
+                <article class="post-card" onclick="loadPost('post2')">
+                    <h3>Post #2: Representación de Grafos</h3>
+                    <p class="post-excerpt">Descubre las dos formas principales de representar grafos en memoria: lista y matriz...</p>
+                    <a href="posts/post2.html" class="btn btn-secondary">Leer más</a>
+                </article>
+
+                <article class="post-card" onclick="loadPost('post3')">
+                    <h3>Post #3: Algoritmos de Recorrido</h3>
+                    <p class="post-excerpt">Domina BFS y DFS, los algoritmos esenciales para explorar y analizar grafos...</p>
+                    <a href="posts/post3.html" class="btn btn-secondary">Leer más</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>Acerca de este Blog</h2>
+            <p>Este blog técnico fue creado como parte del proyecto de Estructura de Datos 2. Su objetivo es proporcionar una guía completa y accesible sobre la estructura de datos de Grafos, cubriendo desde conceptos básicos hasta algoritmos avanzados.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Blog Técnico - Grafos. Todos los derechos reservados.</p>
+            <p>Proyecto de Estructura de Datos 2</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

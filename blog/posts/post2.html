@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post #2: Representación de Grafos | Blog Técnico</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>📊 Blog Grafos</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#posts">Artículos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="../index.html" class="back-btn">← Volver al inicio</a>
+
+        <article class="post-content">
+            <h1>Post #2: Representación de Grafos</h1>
+            <div class="post-meta">
+                Publicado el 5 de diciembre de 2025 | Lectura: 10 minutos
+            </div>
+
+            <section>
+                <h2>Introducción</h2>
+                <p>
+                    Una vez que entendemos la teoría básica de los grafos, el siguiente paso es 
+                    aprender cómo representarlos en la memoria de una computadora de forma eficiente.
+                </p>
+                <p>
+                    Existen dos enfoques principales para representar grafos:
+                </p>
+                <ul>
+                    <li><strong>Lista de Adyacencia</strong></li>
+                    <li><strong>Matriz de Adyacencia</strong></li>
+                </ul>
+                <p>
+                    La elección entre una u otra depende del tipo de grafo, 
+                    sus características y las operaciones que necesitamos realizar.
+                </p>
+            </section>
+
+            <section>
+                <h2>1. Matriz de Adyacencia</h2>
+
+                <h3>¿Qué es?</h3>
+                <p>
+                    Una matriz de adyacencia es una matriz cuadrada de tamaño n×n, donde n es el número de vértices. 
+                    Cada posición (i, j) de la matriz contiene:
+                </p>
+                <ul>
+                    <li><strong>1</strong> (o el peso) si existe una arista entre los vértices i y j</li>
+                    <li><strong>0</strong> si NO existe arista entre los vértices i y j</li>
+                </ul>
+
+                <h3>Ventajas</h3>
+                <ul>
+                    <li><strong>Acceso rápido:</strong> Verificar si existe una arista entre dos vértices se hace en O(1)</li>
+                    <li><strong>Fácil implementación:</strong> Muy simple de entender y codificar</li>
+                    <li><strong>Ideal para grafos densos:</strong> Cuando hay muchas aristas</li>
+                    <li><strong>Operaciones matriciales:</strong> Permite usar algoritmos de álgebra lineal</li>
+                </ul>
+
+                <h3>Desventajas</h3>
+                <ul>
+                    <li><strong>Uso de memoria:</strong> Requiere O(n²) espacio, incluso para grafos con pocas aristas</li>
+                    <li><strong>Ineficiente para grafos dispersos:</strong> Mucho espacio desperdiciado en ceros</li>
+                    <li><strong>Iteración lenta:</strong> Verificar todos los vecinos toma O(n) tiempo</li>
+                </ul>
+
+                <h3>Ejemplo Visual</h3>
+                <div class="diagram-box">
+                    <h4>Matriz de Adyacencia - Ejemplo</h4>
+                    <canvas id="matrixDiagram" width="550" height="350"></canvas>
+                    <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem;">
+                        Matriz de adyacencia para un grafo con 5 nodos (A, B, C, D, E)
+                    </p>
+                </div>
+
+                <h3>Implementación en Python</h3>
+                <pre><code class="python">
+class GrafoMatriz:
+    def __init__(self, n):
+        self.n = n
+        self.matriz = [[0] * n for _ in range(n)]
+    
+    def agregar_arista(self, u, v, peso=1):
+        """Agrega una arista entre u y v"""
+        self.matriz[u][v] = peso
+        self.matriz[v][u] = peso  # Para grafos no dirigidos
+    
+    def existe_arista(self, u, v):
+        """Verifica si existe arista entre u y v"""
+        return self.matriz[u][v] != 0
+    
+    def obtener_vecinos(self, u):
+        """Retorna todos los vecinos del vértice u"""
+        return [i for i in range(self.n) if self.matriz[u][i] != 0]
+
+# Uso
+grafo = GrafoMatriz(5)
+grafo.agregar_arista(0, 1)  # Arista entre A(0) y B(1)
+grafo.agregar_arista(1, 2)  # Arista entre B(1) y C(2)
+print(grafo.existe_arista(0, 1))  # True
+print(grafo.obtener_vecinos(0))   # [1]
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>2. Lista de Adyacencia</h2>
+
+                <h3>¿Qué es?</h3>
+                <p>
+                    Una lista de adyacencia es una colección de listas, donde cada índice i contiene 
+                    una lista de todos los vértices adyacentes a i.
+                </p>
+
+                <h3>Ventajas</h3>
+                <ul>
+                    <li><strong>Uso eficiente de memoria:</strong> O(V + E), solo almacena las aristas que existen</li>
+                    <li><strong>Ideal para grafos dispersos:</strong> Mucho más eficiente que matriz para grafos con pocas aristas</li>
+                    <li><strong>Iteración rápida:</strong> Acceder a todos los vecinos es rápido</li>
+                    <li><strong>Escalable:</strong> No afecta significativamente el rendimiento con grafos grandes dispersos</li>
+                </ul>
+
+                <h3>Desventajas</h3>
+                <ul>
+                    <li><strong>Acceso más lento:</strong> Verificar si existe una arista toma O(grado del vértice)</li>
+                    <li><strong>Implementación más compleja:</strong> Requiere estructuras dinámicas (listas vinculadas o arrays)</li>
+                    <li><strong>Menos eficiente para grafos densos:</strong> La matriz es mejor para muchas aristas</li>
+                </ul>
+
+                <h3>Ejemplo Visual</h3>
+                <p>
+                    Para el mismo grafo del ejemplo anterior, la lista de adyacencia sería:
+                </p>
+                <pre><code>
+A: [B, C, E]
+B: [A, C, E]
+C: [A, B, D]
+D: [C, E]
+E: [A, B, D]
+                </code></pre>
+
+                <h3>Implementación en Python</h3>
+                <pre><code class="python">
+class GrafoLista:
+    def __init__(self, n):
+        self.n = n
+        self.lista = [[] for _ in range(n)]
+    
+    def agregar_arista(self, u, v, peso=1):
+        """Agrega una arista entre u y v"""
+        self.lista[u].append((v, peso))
+        self.lista[v].append((u, peso))  # Para grafos no dirigidos
+    
+    def existe_arista(self, u, v):
+        """Verifica si existe arista entre u y v"""
+        for vecino, _ in self.lista[u]:
+            if vecino == v:
+                return True
+        return False
+    
+    def obtener_vecinos(self, u):
+        """Retorna todos los vecinos del vértice u"""
+        return [vecino for vecino, _ in self.lista[u]]
+
+# Uso
+grafo = GrafoLista(5)
+grafo.agregar_arista(0, 1)  # Arista entre A(0) y B(1)
+grafo.agregar_arista(1, 2)  # Arista entre B(1) y C(2)
+print(grafo.existe_arista(0, 1))  # True
+print(grafo.obtener_vecinos(0))   # [1]
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Comparativa: Matriz vs Lista de Adyacencia</h2>
+                <table style="width: 100%; border-collapse: collapse; margin: 2rem 0;">
+                    <thead>
+                        <tr style="background-color: #2563eb; color: white;">
+                            <th style="border: 1px solid #ccc; padding: 10px;">Aspecto</th>
+                            <th style="border: 1px solid #ccc; padding: 10px;">Matriz</th>
+                            <th style="border: 1px solid #ccc; padding: 10px;">Lista</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="border: 1px solid #ccc; padding: 10px;"><strong>Espacio</strong></td>
+                            <td style="border: 1px solid #ccc; padding: 10px;">O(V²)</td>
+                            <td style="border: 1px solid #ccc; padding: 10px;">O(V + E)</td>
+                        </tr>
+                        <tr style="background-color: #f8fafc;">
+                            <td style="border: 1px solid #ccc; padding: 10px;"><strong>Búsqueda de arista</strong></td>
+                            <td style="border: 1px solid #ccc; padding: 10px;">O(1)</td>
+                            <td style="border: 1px solid #ccc; padding: 10px;">O(grado)</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ccc; padding: 10px;"><strong>Listar vecinos</strong></td>
+                            <td style="border: 1px solid #ccc; padding: 10px;">O(V)</td>
+                            <td style="border: 1px solid #ccc; padding: 10px;">O(grado)</td>
+                        </tr>
+                        <tr style="background-color: #f8fafc;">
+                            <td style="border: 1px solid #ccc; padding: 10px;"><strong>Mejor para</strong></td>
+                            <td style="border: 1px solid #ccc; padding: 10px;">Grafos densos</td>
+                            <td style="border: 1px solid #ccc; padding: 10px;">Grafos dispersos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>¿Cuál Elegir?</h2>
+                <p>
+                    La elección entre matriz y lista de adyacencia depende de:
+                </p>
+                <ul>
+                    <li><strong>Densidad del grafo:</strong> 
+                        <ul>
+                            <li>Grafo denso (muchas aristas) → Matriz</li>
+                            <li>Grafo disperso (pocas aristas) → Lista</li>
+                        </ul>
+                    </li>
+                    <li><strong>Operaciones frecuentes:</strong>
+                        <ul>
+                            <li>Búsqueda de aristas rápida → Matriz</li>
+                            <li>Iteración sobre vecinos → Lista</li>
+                        </ul>
+                    </li>
+                    <li><strong>Restricciones de memoria:</strong>
+                        <ul>
+                            <li>Memoria limitada → Lista</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Conclusión</h2>
+                <p>
+                    Ambas representaciones son válidas y útiles en diferentes contextos. 
+                    Los profesionales experimentados eligen la representación basada en las características 
+                    específicas de su problema. En el siguiente artículo exploraremos los algoritmos 
+                    fundamentales para recorrer grafos: BFS y DFS.
+                </p>
+            </section>
+        </article>
+
+        <a href="../index.html" class="back-btn">← Volver al inicio</a>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Blog Técnico - Grafos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Dibujar la matriz cuando la página cargue
+        window.addEventListener('load', function() {
+            drawAdjacencyMatrix('matrixDiagram');
+        });
+    </script>
+</body>
+</html>
